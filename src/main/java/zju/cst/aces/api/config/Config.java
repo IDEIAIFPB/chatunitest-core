@@ -155,7 +155,7 @@ public class Config {
         public OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(5, TimeUnit.MINUTES)
                 .writeTimeout(5, TimeUnit.MINUTES)
-                .readTimeout(5, TimeUnit.MINUTES)
+                .readTimeout(25, TimeUnit.MINUTES)
                 .build();
         public String coverageAnalyzer_jar_path;
         public int max_coverage_improve_time=maxRounds;

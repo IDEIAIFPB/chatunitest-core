@@ -781,6 +781,9 @@ public class PromptTemplate {
         return fullProjectCode;
     }
     public String getJavaDocCodeExample(String javadocs) {
+        if (javadocs == null) {
+            return "";
+        }
         List<String> lines = Arrays.asList(javadocs.split("\r\n"));
         JavadocCodeExampleCheck javadocCodeExampleCheck=new JavadocCodeExampleCheck();
         List<String> javaDocCodeExample = javadocCodeExampleCheck.getJavaDocCodeExample(lines);

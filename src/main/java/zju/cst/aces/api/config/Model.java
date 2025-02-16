@@ -60,8 +60,26 @@ public enum Model {
             .withTemperature(0.5)
             .withFrequencyPenalty(0)
             .withPresencePenalty(0)
-            .build());
+            .build()),
 
+    QWEN_2_5_14B("qwen2.5-coder:14b", new ModelConfig.Builder()
+            .withModelName("qwen2.5-coder:14b")
+            .withUrl(null)
+            .withContextLength(32768)
+            .withTemperature(0.3)
+            .withFrequencyPenalty(0)
+            .withPresencePenalty(0)
+            .build()),
+
+    DEEPSEEK_V2_LITE("deepseek-coder-v2:latest", new ModelConfig.Builder()
+            .withModelName("deepseek-coder-v2:latest")
+            .withUrl(null)
+            .withContextLength(32768)
+            .withTemperature(0.3)
+            .withFrequencyPenalty(0)
+            .withPresencePenalty(0)
+            .build());
+    
     private final String modelName;
     private final ModelConfig defaultConfig;
 

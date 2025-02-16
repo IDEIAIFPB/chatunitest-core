@@ -20,12 +20,6 @@
         <connection>git@github.com:ZJU-ACES-ISE/chatunitest-core.git</connection>
         <url>https://github.com/ZJU-ACES-ISE/chatunitest-core</url>
     </scm>
-    <developers>
-        <developer>
-            <name></name>
-            <email></email>
-        </developer>
-    </developers>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>8</maven.compiler.source>
@@ -56,7 +50,7 @@
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
-            <version>4.9.3</version>
+            <version>4.11.0</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -77,11 +71,6 @@
             <groupId>org.apache.maven.shared</groupId>
             <artifactId>maven-dependency-tree</artifactId>
             <version>3.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.maven</groupId>
-            <artifactId>maven-core</artifactId>
-            <version>3.0</version> <!-- Ensure compatibility with maven versions of most projects -->
         </dependency>
         <dependency>
             <groupId>org.junit.platform</groupId>
@@ -190,7 +179,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.13.4</version>
+            <version>2.15.2</version>
         </dependency>
 
         <!-- Other dependencies -->
@@ -247,7 +236,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-release-plugin</artifactId>
-                        <version>2.5.3</version>
+                        <version>3.0.1</version>
                         <configuration>
                             <autoVersionSubmodules>true</autoVersionSubmodules>
                             <useReleaseProfile>false</useReleaseProfile>
@@ -259,7 +248,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
-                        <version>2.2.1</version>
+                        <version>3.2.1</version>
                         <executions>
                             <execution>
                                 <id>attach-sources</id>
