@@ -73,5 +73,9 @@ If you have any questions, please feel free to contact us via email:
 ### Compile project for local maven repository
 
 ```bash
-mvn install:install-file -Dfile=target/chatunitest-core-2.0.0.jar -DgroupId=io.github.ZJU-ACES-ISE -DartifactId=chatunitest-core -Dversion=2.0.0 -Dpackaging=jar
+mvn -U clean install
+```
+
+```bash
+mvn install:install-file -Dfile=target/chatunitest-core-2.0.0.jar -DgroupId=org.ifpb.ideia -DartifactId=chatunitest-core -Dversion=2.0.0 -Dpackaging=jar
 ```
