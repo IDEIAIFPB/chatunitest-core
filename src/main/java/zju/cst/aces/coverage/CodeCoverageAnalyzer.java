@@ -101,6 +101,7 @@ public class CodeCoverageAnalyzer {
         memoryClassLoader.addDefinition(targetClassName, instrumentedClass);
 
         Class<?> testClass = memoryClassLoader.loadClass(targetTestName);
+        memoryClassLoader.close();
 
         LauncherDiscoveryRequest request = LauncherDiscoveryRequestBuilder.request()
                 .selectors(DiscoverySelectors.selectClass(testClass))
@@ -133,10 +134,7 @@ public class CodeCoverageAnalyzer {
         JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
         StandardJavaFileManager fileManager = compiler.getStandardFileManager(null, null, null);
 
-        File outputDir = new File("compiled_classes");
-        if (!outputDir.exists()) {
-            outputDir.mkdirs();
-        }
+        File outputDir = new File(System.getProperty("user.dir"), "compiled_classes");
 
         List<File> classPath = new ArrayList<>();
         classPath.add(new File(targetClassCompiledDir));
@@ -154,10 +152,11 @@ public class CodeCoverageAnalyzer {
         InputStream compiledClass = new FileInputStream(compiledFile);
         byte[] instrumentedClass = instr.instrument(compiledClass, className);
         compiledClass.close();
-        // 删除编译后的 .class 文件
+
         if (compiledFile.exists()) {
             compiledFile.delete();
         }
+
         return instrumentedClass;
     }
 
