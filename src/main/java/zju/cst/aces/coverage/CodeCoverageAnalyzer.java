@@ -135,6 +135,9 @@ public class CodeCoverageAnalyzer {
         StandardJavaFileManager fileManager = compiler.getStandardFileManager(null, null, null);
 
         File outputDir = new File(System.getProperty("user.dir"), "compiled_classes");
+        if (!outputDir.exists()) {
+            outputDir.mkdirs();
+        }
 
         List<File> classPath = new ArrayList<>();
         classPath.add(new File(targetClassCompiledDir));
