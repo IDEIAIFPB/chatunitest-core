@@ -66,7 +66,15 @@ public class COVERUP extends PhaseImpl {
                 }
                 // Check maximum improvement threshold
                 if (promptInfo.coverage_improve_time >= config.max_coverage_improve_time) {
-                    exportTest(promptInfo.max_coverage_test_code, savePath);
+                    String finalCode = promptInfo.max_coverage_test_code != null ? promptInfo.max_coverage_test_code : code;
+
+                    if (promptInfo.max_coverage_test_code == null) {
+                        config.getLogger().warn("Fallback ativado: max_coverage_test_code é null. Exportando o último teste gerado, que pode ter cobertura inferior.");
+                    } else {
+                        config.getLogger().info("Exportando teste com melhor cobertura obtida.");
+                    }
+
+                    exportTest(finalCode, savePath);
                     return true;
                 }
 
